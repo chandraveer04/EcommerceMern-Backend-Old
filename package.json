@@ -1,0 +1,45 @@
+{
+  "name": "ecommerce-mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "cd ../frontend && npm run dev",
+    "blockchain": "cd ../blockchain && truffle console --network development",
+    "blockchain:start": "node ../blockchain/scripts/start-chain.js",
+    "blockchain:deploy": "cd ../blockchain && npx truffle migrate --network development",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev:full": "concurrently \"npm run blockchain:start\" \"npm run server\" \"npm run client\"",
+    "build": "npm install && npm install --prefix ../frontend && npm run build --prefix ../frontend",
+    "deploy:contract": "cd ../blockchain && npx truffle migrate --network development --reset",
+    "setup": "npm install && cd ../frontend && npm install && cd ../blockchain && npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@stripe/stripe-js": "^7.4.0",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.4.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.5",
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.3",
+    "multer": "^1.4.5-lts.2",
+    "node-fetch": "^3.3.2",
+    "stripe": "^18.3.0",
+    "truffle": "^5.11.5",
+    "web3": "^4.16.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.9"
+  }
+}
